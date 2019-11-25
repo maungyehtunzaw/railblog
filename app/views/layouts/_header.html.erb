@@ -1,0 +1,40 @@
+ 
+ <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-info">
+  <div class="container">
+  <a class="navbar-brand" href="#">
+
+    <%= image_tag "rail2.png", class: "img-fluid",width:"60px" %>
+    First Rail 
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse my-2 my-lg-0" id="navbarCollapse">
+    <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/articles">Articles</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/users">Users</a>
+      </li>
+      <% if current_user %>
+      <li class="nav-item">
+        <%= link_to "Log Out", logout_path,class:"nav-link" %>
+      </li>
+      <% else %>
+      <li class="nav-item">
+        <%= link_to "Sign Up", signup_path ,class:"nav-link"%> 
+      </li>
+      <li class="nav-item">
+            <%= link_to "Log In", login_path,class:"nav-link" %>
+      </li>
+          <% end %>
+
+    </ul>
+    
+  </div>
+</div>
+</nav>

@@ -1,0 +1,31 @@
+
+<h1>Listing articles</h1>
+<%= link_to 'New article', new_article_path,class:"btn btn-primary" %>
+
+<table class="table table-striked">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>User</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <% @articles.each do |article| %>
+    <tr>
+      <td><%= article.id %></td>
+      <td><%= article.title %></td>
+      <td>
+        <% article.user_id %>
+    </td>
+      <!-- <td><%= article.text %></td> -->
+     
+      <td>
+        <%= link_to 'Show', article_path(article),class:"btn btn-info btn-sm" %>
+        <%= link_to 'Edit', edit_article_path(article),class:"btn btn-primary btn-sm" %>
+        <%= link_to 'Destroy', article_path(article),class:"btn btn-danger btn-sm",method: :delete,data: { confirm: 'Are you sure?' } %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+<%= will_paginate @articles %>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Railblog</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="d-flex flex-column sticky-footer-wrapper">
+    <%= render "layouts/header" %>
+    <main class="flex-fill">
+      <div class="container">
+        <% if current_user %>
+        <h3><%= current_user.email %>.</h3>
+        <% end %>
+        <%= yield %>
+      </div>
+    </main>
+    <%= render "layouts/footer" %>
+</div>
+    
+  </body>
+</html>
